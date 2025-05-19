@@ -2,10 +2,9 @@ class Person():
     def __init__(self, firstname, lastname):
         self.firstname = firstname
         self.lastname = lastname
-        return
     
     def printFullName(self):
-        return
+        print(f"{self.firstname} {self.lastname}")
     
 class Student(Person):
     def __init__(self, firstname, lastname, studentid, housegroup):
@@ -13,19 +12,28 @@ class Student(Person):
         self.studentid = studentid
         self.housegroup = housegroup
         self.subjects = []
-        return
+
 
     def enrolClass(self, subjectname):
-        s1 = self.Subject()
-        s1.subjectname = subjectname
-        s1.studentid = self.studentid
-        return
+        s1 = Subject(self.studentid, subjectname)
+        self.subjects.append(s1)
+
+    def printSubjects(self):
+        print(f"")
     
 class Subject():
     def __init__(self, studentid, subjectname):
-        self.studentid = 0
-        self.subjectname = ""
-        return
+        self.studentid = studentid
+        self.subjectname = subjectname
     
     def printStudentList():
-        return
+        pass
+    
+class Parent():
+    def __init__(self, occupation, alumni):
+        self.occupation = occupation
+        self.alumni = alumni
+
+Lucas = Student("Lucas", "Yang", "studentid", "housegroup")
+Lucas.printFullName()
+Lucas.enrolClass("Music")
